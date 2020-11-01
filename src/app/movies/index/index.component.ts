@@ -57,7 +57,7 @@ export class IndexComponent implements OnInit {
   }
 
   insertMovies() {
-    this._service.getmovies().subscribe(result => {
+    this._service.getMovies().subscribe(result => {
       for (let i = 0; i < result.results.length; i++) {
         let movie = new Movies();
         movie.id = result.results[i].id;

@@ -15,18 +15,11 @@ export class DetailComponent implements OnInit {
 
 
   ngOnInit(): void {
-
     let id = JSON.parse(localStorage.getItem('movieId'));
-
-
+    
     this._service.detailMovie(id).subscribe(result => {
-
-      let movie: Movies;
-
-      console.log('country ' + result.release_date);
       this.detailMovie.id = result.id;
       this.detailMovie.vote = result.vote_average;
-      console.log('res' + this.detailMovie.vote);
       this.detailMovie.name = result.original_title;
       this.detailMovie.image = 'https://image.tmdb.org/t/p/w500' + result.poster_path;
       this.detailMovie.overview = result.overview;

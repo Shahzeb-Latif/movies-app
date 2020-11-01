@@ -11,7 +11,7 @@ export class MoviesService {
 
   constructor(private http: HttpClient) { }
 
-  getmovies(): Observable<any> {
+  getMovies(): Observable<any> {
     return this.http.get(this.url + "movie/upcoming?" + this.api);
   }
 
