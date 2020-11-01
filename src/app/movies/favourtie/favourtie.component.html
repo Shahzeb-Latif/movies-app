@@ -1,51 +1,53 @@
 <h1 class="col text-center" style="font-size: 20px ;color:red;">Favourite Movies</h1>
-<div class="row">
-    <div class="col-md-9"></div>
-    <div class="col-md-3">
-        <input type="text" style="margin-left: 40px;margin-top: 12px;" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+            <input type="text" style="margin-left: 40px;margin-top: 12px;" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search">
+        </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-md-6" *ngFor="let movie of movies | filter:searchText | paginate:{itemsPerPage: 6, currentPage:p}">
-        <div class="card">
-            <br>
-            <div class="row">
-                <div class="col-md-6">
-                    <img class="img-thumbnail img-fluid" src={{movie.image}} alt="">
-                </div>
-
-                <div class="col-md-6">
-
-                    <div class="card-title ">
-                        <h4>{{movie.name}}</h4>
+    <div class="row">
+        <div class="col-md-6" *ngFor="let movie of movies | filter:searchText | paginate:{itemsPerPage: 6, currentPage:p}">
+            <div class="card">
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img class="img-thumbnail img-fluid" src={{movie.image}} alt="">
                     </div>
 
-                    <div class="card-title ">
-                        <p style="font-size:15px;margin-top:-15px;">{{movie.date}}
-                            <p>
-                    </div>
-                    <div class="card-title "><b>
+                    <div class="col-md-6">
+
+                        <div class="card-title ">
+                            <h4>{{movie.name}}</h4>
+                        </div>
+
+                        <div class="card-title ">
+                            <p style="font-size:15px;margin-top:-15px;">{{movie.date}}
+                                <p>
+                        </div>
+                        <div class="card-title "><b>
                             <p style="font-size:15px;margin-top:-18px;color:red">Rating: {{movie.vote}}
                             <p>
                         </b></div>
-                    <div class="card-title ">
-                        <p>{{movie.halfOverview}}</p>
+                        <div class="card-title ">
+                            <p>{{movie.halfOverview}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card-footer col text-center"><a [routerLink]="" (click)="detail(movie)">More Info</a></div>
+                <div class="card-footer col text-center"><a [routerLink]="" (click)="detail(movie)">More Info</a></div>
 
-            <div class="card-body">
+                <div class="card-body">
 
-                <div class="card-footer col text-center"><button class="btn btn-primary" (click)="makeUnFav(movie)">Mark
+                    <div class="card-footer col text-center"><button class="btn btn-primary" (click)="makeUnFav(movie)">Mark
                         Un-favorite</button></div>
+                </div>
+
             </div>
 
         </div>
-
-    </div>
-    <div id="pagination">
-        <pagination-controls (pageChange)="p=$event"></pagination-controls>
+        <div id="pagination">
+            <pagination-controls (pageChange)="p=$event"></pagination-controls>
+        </div>
     </div>
 </div>
