@@ -2,7 +2,6 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import { Movies } from '../../models/movies';
 import { MoviesService } from '../../services/moveis.service';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -48,7 +47,11 @@ export class IndexComponent implements OnInit {
   }
   checkFavourite(movie: Movies) {
     let list = JSON.parse(localStorage.getItem('fav'));
-    return list.some((item) => item.id == movie.id);
+    if (list != null && list != undefined) {
+      return list.some((item) => item.id == movie.id);
+    }
+    else
+      return null;
 
   }
   detail(movie: Movies) {
