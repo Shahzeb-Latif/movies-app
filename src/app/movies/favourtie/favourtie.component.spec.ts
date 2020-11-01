@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FavourtieComponent } from './favourtie.component';
 
 describe('FavourtieComponent', () => {
@@ -8,9 +7,9 @@ describe('FavourtieComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FavourtieComponent ]
+      declarations: [FavourtieComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
